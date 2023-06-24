@@ -1,0 +1,6 @@
+Errors with BAMS project
+========================
+
+Login page
+---------------------
+1. The error of hardcoded username and password array length

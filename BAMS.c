@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 
                                                                     /************************\
                                                                     |* The  works  of  the  *|
@@ -8,23 +9,60 @@
                                                                     \************************/
 int main()
 {
+    // Dummy user info
+    char username[] = "Moraanu";
+    char password[] = "password12345";
+
     //Declared variables
-    int i;
+    int i, user_result, pass_result;
+    int dep_amnt;
+
 
     // Assigned Variables
+    int login = 1;
     int menu_option = 0;
     int exit = 0;
     int balance = 0;
 
+    char user_login[8];
+    char pass_login[14];
 
-    // Arrays
+    // Login Page
+    do{
+        // Prompt for username
+        printf("Enter your username: ");
+        fgets(user_login, 8, stdin);
+        user_result = strcmp(username, user_login);
 
+        // Verify username
+        if (user_result == 0){
+            login = user_result;
+        }
+
+    }
+    while(login == 1);
+
+    login = 1;
+
+    do{
+        // Prompt for password
+        printf("Enter your password: ");
+        fgets(pass_login, 14, stdin);
+        pass_result = strcmp(password, pass_login);
+
+        // Verify Password
+        if (pass_result == 0){
+            login = pass_result;
+        }
+
+    }
+    while(login == 1);
 
 
             //Welcome message
     puts("");
-    puts("\t\t\t\tWelcome to The Cyber Father Bank, Mauritius\
-         \n\t\t\t\t\tWhat would you like to do? ");
+    printf("\t\t\t\tWelcome to the Cyber Father Bank, Mauritius\
+         \n\t\t\t\tHi %s, what would you like to do?\n", username);
 
 
             // Transaction Menu
@@ -52,7 +90,12 @@ int main()
     }
     else if ( menu_option == 3 )
     {
-        printf("Enter the amount you want to deposit");
+        printf("Enter the amount you want to deposit: ");
+        scanf("%d", &dep_amnt);
+        printf("Success, you deposited %d", dep_amnt);
+        balance = balance + dep_amnt;
+        printf(" and your balance is %d", balance);
+
     }
     else if ( menu_option == 4 )
     {
